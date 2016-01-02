@@ -1,0 +1,186 @@
+﻿<Window x:Class="BkTextFormatter.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:BkTextFormatter"
+		mc:Ignorable="d"
+		Title="BK Text Formatter"
+		Height="550"
+		Width="525">
+	<Grid>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<!-- Increase the Height for the second row when adding more controls. -->
+			<RowDefinition Height="305" />
+		</Grid.RowDefinitions>
+
+		<StackPanel Grid.Row="1"
+					Orientation="Vertical"
+					DockPanel.Dock="Bottom">
+
+			<!-- RemoveBlankLines -->
+			<Button Name="RemoveBlankLinesButton"
+					Content="Remove Blank Lines"
+					Height="30"
+					Click="RemoveBlankLinesButton_Click" />
+
+			<!-- RemoveEols -->
+			<Button Name="RemoveEolsButton"
+					Content="Remove EOL characters"
+					Height="30"
+					Click="RemoveEolsButton_Click" />
+
+			<!-- PrependTextToLines -->
+			<Grid>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="PrependTextToLinesButton"
+						Content="Prepend Text To Lines:"
+						Height="30"
+						Click="PrependTextToLinesButton_Click" />
+				<ScrollViewer Grid.Column="1"
+							  MinHeight="60">
+					<TextBox Name="TextToPrependTextBox"
+							 AcceptsReturn="True"
+							 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+							 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+				</ScrollViewer>
+			</Grid>
+
+			<!-- AppendTextToLines -->
+			<Grid>
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="AppendTextToLinesButton"
+						Content="Append Text To Lines:"
+						Height="30"
+						Click="AppendTextToLinesButton_Click" />
+				<ScrollViewer Grid.Column="1"
+							  MinHeight="60">
+					<TextBox Name="TextToAppendTextBox"
+							 AcceptsReturn="True"
+							 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+							 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+				</ScrollViewer>
+			</Grid>
+
+			<!-- NewLineAfterDelimiter -->
+			<Grid MaxHeight="30">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="NewLineAfterDelimiterButton"
+						Content="Line Break after Delimiter:"
+						Height="Auto"
+						Click="NewLineAfterDelimiterButton_Click" />
+				<TextBox Grid.Column="1"
+						 Name="DelimiterForNewLineAfterDelimiterTextBox"
+						 Width="40"
+						 HorizontalAlignment="Left" />
+			</Grid>
+
+			<!-- NewLineAtDelimiter -->
+			<Grid MaxHeight="30">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="NewLineAtDelimiterButton"
+						Content="Line Break at Delimiter:"
+						Height="Auto"
+						Click="NewLineAtDelimiterButton_Click" />
+				<TextBox Grid.Column="1"
+						 Name="DelimiterForNewLineAtDelimiterTextBox"
+						 Width="40"
+						 HorizontalAlignment="Left" />
+			</Grid>
+
+			<!-- NewLineToDelimiter -->
+			<Grid MaxHeight="30">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="NewLineToDelimiterButton"
+						Content="Line Break to Delimiter:"
+						Height="Auto"
+						Click="NewLineToDelimiterButton_Click" />
+				<TextBox Grid.Column="1"
+						 Name="DelimiterForNewLineToDelimiterTextBox"
+						 Width="40"
+						 HorizontalAlignment="Left" />
+			</Grid>
+
+			<!-- DeleteTextOnLinesBeforeEndOfMarkText -->
+			<Grid MaxHeight="30">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="DeleteTextOnLinesBeforeEndOfMarkTextButton"
+						Content="Delete text on lines before end of mark:"
+						Height="Auto"
+						Click="DeleteTextOnLinesBeforeEndOfMarkTextButton_Click" />
+				<TextBox Grid.Column="1"
+						 Name="DeleteTextOnLinesBeforeEndOfMarkTextTextBox"
+						 Width="301"
+						 HorizontalAlignment="Left" />
+			</Grid>
+
+			<!-- DeleteTextOnLinesAfterStartOfMarkText -->
+			<Grid MaxHeight="30">
+
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="45*" />
+					<ColumnDefinition Width="109*" />
+				</Grid.ColumnDefinitions>
+
+				<Button Grid.Column="0"
+						Name="DeleteTextOnLinesAfterStartOfMarkTextButton"
+						Content="Delete text on lines after start of mark:"
+						Height="Auto"
+						Click="DeleteTextOnLinesAfterStartOfMarkTextTextButton_Click" />
+				<TextBox Grid.Column="1"
+						 Name="DeleteTextOnLinesAfterStartOfMarkTextTextBox"
+						 Width="301"
+						 HorizontalAlignment="Left" />
+			</Grid>
+
+		</StackPanel>
+
+		<ScrollViewer Grid.Row="0">
+			<TextBox Name="LinesTextBox"
+					 DockPanel.Dock="Top"
+					 AcceptsReturn="True"
+					 ScrollViewer.HorizontalScrollBarVisibility="Auto"
+					 ScrollViewer.VerticalScrollBarVisibility="Auto" />
+		</ScrollViewer>
+
+	</Grid>
+</Window>
